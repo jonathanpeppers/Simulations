@@ -15,5 +15,5 @@ public class Organism
 	/// <summary>
 	/// 0 to 1, chance of finding food
 	/// </summary>
-	public float ChanceToForage { get; set; } = 0.5f;
+	public float ChanceToForage { get; set; } = 0.75f;
 }

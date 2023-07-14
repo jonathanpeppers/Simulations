@@ -22,6 +22,7 @@ await Task.Delay(1000);
 
 for (int i = 0; i < 10; i++)
 {
+	Console.WriteLine();
 	Console.WriteLine("New generation...");
 	Console.WriteLine(generation.ToString());
 	await Task.Delay(1000);

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace Simulations.Logic;
@@ -23,19 +24,37 @@ public class Generation
 				}
 				else
 				{
+					bool ate = false;
 					if (current.Previous is not null && current.Previous.Value.Color == current.Value.Diet)
 					{
+						Console.WriteLine($"{current.Value.Color} ate previous {current.Previous.Value.Color}.");
+						ate = true;
 						nextGeneration.Organisms.Remove(current.Previous.Value);
 						Organisms.Remove(current.Previous);
 						nextGeneration.Organisms.AddLast(current.Value);
 					}
 					if (current.Next is not null && current.Next.Value.Color == current.Value.Diet)
 					{
+						ate = true;
+						Console.WriteLine($"{current.Value.Color} ate next {current.Next.Value.Color}.");
 						nextGeneration.Organisms.Remove(current.Next.Value);
 						Organisms.Remove(current.Next);
 						nextGeneration.Organisms.AddLast(current.Value);
 					}
+					if (!ate)
+					{
+						Console.WriteLine($"{current.Value.Color} died, no food.");
+					}
 				}
+			}
+			else if (current.Value.Diet is null)
+			{
+				Console.WriteLine($"{current.Value.Color} survived, no diet.");
+				nextGeneration.Organisms.AddLast(current.Value);
+			}
+			else
+			{
+				Console.WriteLine($"{current.Value.Color} did not forage, died.");
 			}
 
 			current = current.Next;
