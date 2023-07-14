@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simulations.Console", "Simu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simulations.Logic", "Simulations.Logic\Simulations.Logic.csproj", "{DAAFC55F-E8FA-4218-AEDB-E56AEFFA3E60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simulations.WPF", "Simulations.WPF\Simulations.WPF.csproj", "{FA24095E-4E96-4AF7-B996-CC4F901D3E6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DAAFC55F-E8FA-4218-AEDB-E56AEFFA3E60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAAFC55F-E8FA-4218-AEDB-E56AEFFA3E60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAAFC55F-E8FA-4218-AEDB-E56AEFFA3E60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA24095E-4E96-4AF7-B996-CC4F901D3E6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA24095E-4E96-4AF7-B996-CC4F901D3E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA24095E-4E96-4AF7-B996-CC4F901D3E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA24095E-4E96-4AF7-B996-CC4F901D3E6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
