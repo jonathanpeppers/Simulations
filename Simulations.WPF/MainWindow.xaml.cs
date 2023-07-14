@@ -7,6 +7,7 @@ using System.Linq;
 using System.Windows.Shapes;
 using System.Windows.Media;
 using Color = Simulations.Logic.Color;
+using System.Diagnostics;
 
 namespace Simulations.WPF;
 
@@ -20,7 +21,10 @@ public partial class MainWindow : Window
 
 	async void OnLoaded(object sender, RoutedEventArgs e)
 	{
-		var generation = new Generation();
+		var generation = new Generation
+		{
+			Logger = new DebugTextWriter(),
+		};
 
 		var list = new List<Organism>();
 		for (int i = 0; i < 5; i++)
@@ -37,21 +41,21 @@ public partial class MainWindow : Window
 			generation.Organisms.AddLast(organism);
 		}
 
-		Console.WriteLine("Starting simulation...");
-		await Task.Delay(1000);
+		Debug.WriteLine("Starting simulation...");
+		await Task.Delay(3000);
 
 		for (int i = 0; i < 10; i++)
 		{
 			UpdateScreen(generation);
 
-			Console.WriteLine();
-			Console.WriteLine("New generation...");
-			Console.WriteLine(generation.ToString());
-			await Task.Delay(1000);
+			Debug.WriteLine("");
+			Debug.WriteLine("New generation...");
+			Debug.WriteLine(generation.ToString());
+			await Task.Delay(3000);
 			generation = generation.NextGeneration();
 		}
 
-		Console.WriteLine("End of simulation...");
+		Debug.WriteLine("End of simulation...");
 	}
 
 	void UpdateScreen(Generation generation)
