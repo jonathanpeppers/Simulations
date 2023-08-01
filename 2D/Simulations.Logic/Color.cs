@@ -1,8 +1,8 @@
 namespace Simulations.Logic;
 
-public enum Color
+public struct Color
 {
-	Blue,
-	Red,
-	Green,
+	public float Red;
+	public float Blue;
+	public float Green;
 }
