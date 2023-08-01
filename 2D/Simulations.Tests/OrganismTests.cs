@@ -18,6 +18,6 @@ public class OrganismTests
 		organism.Update();
 
 		Assert.Equal(105, organism.X);
-        Assert.Equal(105, organism.Y);
-    }
+		Assert.Equal(105, organism.Y);
+	}
 }

@@ -1,8 +1,8 @@
-﻿namespace Simulations.Logic;
+namespace Simulations.Logic;
 
 public enum Color
 {
-    Blue,
-    Red,
-    Green,
+	Blue,
+	Red,
+	Green,
 }

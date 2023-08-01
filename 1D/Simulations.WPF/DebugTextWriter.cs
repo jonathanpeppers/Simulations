@@ -1,4 +1,4 @@
-﻿#nullable disable
+#nullable disable
 namespace Simulations.WPF;
 
 // Copy-paste from: https://stackoverflow.com/a/8855321

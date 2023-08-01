@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 
 namespace Simulations.Logic;
 
@@ -59,7 +59,7 @@ public class Generation
 
 			current = current.Next;
 		}
-		
+
 		return nextGeneration;
 	}
 

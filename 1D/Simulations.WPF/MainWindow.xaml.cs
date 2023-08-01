@@ -1,13 +1,13 @@
-﻿using Simulations.Logic;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using System;
-using System.Windows;
-using System.Linq;
-using System.Windows.Shapes;
-using System.Windows.Media;
-using Color = Simulations.Logic.Color;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Media;
+using System.Windows.Shapes;
+using Simulations.Logic;
+using Color = Simulations.Logic.Color;
 
 namespace Simulations.WPF;
 

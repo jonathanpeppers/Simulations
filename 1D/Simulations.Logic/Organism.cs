@@ -1,4 +1,4 @@
-﻿namespace Simulations.Logic;
+namespace Simulations.Logic;
 
 public class Organism
 {

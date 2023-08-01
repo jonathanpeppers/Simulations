@@ -1,4 +1,4 @@
-﻿using Simulations.Logic;
+using Simulations.Logic;
 
 var generation = new Generation();
 
