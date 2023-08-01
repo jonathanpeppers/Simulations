@@ -1,5 +1,8 @@
 namespace Simulations.Logic;
 
+/// <summary>
+/// A single lifeform, or organism
+/// </summary>
 public class Organism
 {
 	public Color Color { get; set; }
