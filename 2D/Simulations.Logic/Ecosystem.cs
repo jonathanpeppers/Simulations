@@ -8,6 +8,11 @@ public class Ecosystem
 	public List<Organism> Organisms { get; set; } = new();
 
 	/// <summary>
+	/// Fired when we could play a sound effect
+	/// </summary>
+	public event EventHandler EatSound = delegate { };
+
+	/// <summary>
 	/// 50% chance this returns true, overridden by unit tests
 	/// </summary>
 	internal Func<bool> FiftyFifty { get; set; } = () => Random.Shared.Next(2) == 0;
@@ -48,6 +53,8 @@ public class Ecosystem
 						second.Eat(first);
 						born.Add(second.Duplicate());
 					}
+
+					EatSound(this, EventArgs.Empty);
 				}
 			}
 		}

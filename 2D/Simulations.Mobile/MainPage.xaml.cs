@@ -1,3 +1,6 @@
+using System.Diagnostics;
+using CommunityToolkit.Maui.Core.Primitives;
+using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls.Shapes;
 using Simulations.Logic;
 
@@ -41,6 +44,7 @@ namespace Simulations.Mobile
 		public MainPage()
 		{
 			InitializeComponent();
+			ecosystem.EatSound += (sender, e) => element.Play();
 			UpdateChildren();
 			Dispatcher.StartTimer(TimeSpan.FromSeconds(.5), Update);
 			Unloaded += (sender, e) => stop = true;
@@ -70,5 +74,9 @@ namespace Simulations.Mobile
 				layout.Children.Add(shape);
 			}
 		}
+
+		void OnMediaFailed(object sender, MediaFailedEventArgs e) => DisplayAlert("Oops!", e.ErrorMessage, "Ok");
+
+		void OnMediaOpened(object sender, EventArgs e) => Debug.WriteLine("Media opened!");
 	}
 }
