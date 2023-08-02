@@ -5,6 +5,7 @@ namespace Simulations.Mobile
 {
 	public partial class MainPage : ContentPage
 	{
+		bool stop = false;
 		const int step = 50;
 		Ecosystem ecosystem = new()
 		{
@@ -42,13 +43,14 @@ namespace Simulations.Mobile
 			InitializeComponent();
 			UpdateChildren();
 			Dispatcher.StartTimer(TimeSpan.FromSeconds(.5), Update);
+			Unloaded += (sender, e) => stop = true;
 		}
 
 		bool Update()
 		{
 			ecosystem.Update();
 			UpdateChildren();
-			return true;
+			return !stop;
 		}
 
 		/// <summary>
