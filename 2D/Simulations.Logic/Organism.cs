@@ -1,3 +1,4 @@
+using System.Reflection.PortableExecutable;
 using Microsoft.Maui.Graphics;
 
 namespace Simulations.Logic;
@@ -10,8 +11,6 @@ public class Organism
 	public const int MaxSize = 16;
 
 	public Color Color { get; set; } = Colors.White;
-
-	public Color? Diet { get; set; }
 
 	/// <summary>
 	/// X position
@@ -72,6 +71,15 @@ public class Organism
 	}
 
 	public void Collide(Organism other) => other.Die();
+
+	public Organism Duplicate() => new()
+	{
+		Color = Color,
+		X = X,
+		Y = Y,
+		Range = Range,
+		IsAlive = IsAlive,
+	};
 
 	public void Die()
 	{

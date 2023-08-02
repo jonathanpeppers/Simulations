@@ -12,6 +12,8 @@ public class Ecosystem
 	/// </summary>
 	public void Update()
 	{
+		var born = new List<Organism>();
+
 		// Collision pass
 		foreach (var first in Organisms)
 		{
@@ -24,14 +26,20 @@ public class Ecosystem
 					continue;
 				if (!second.IsAlive)
 					continue;
+				if (first.Color == second.Color)
+					continue;
 
 				if (Math.Abs(first.X -  second.X) <= first.Range &&
 					Math.Abs(first.Y - second.Y) <= first.Range)
 				{
 					first.Collide(second);
+					born.Add(first.Duplicate());
 				}
 			}
 		}
+
+		// Born pass
+		Organisms.AddRange(born);
 
 		// Update pass
 		foreach (var organism in Organisms)

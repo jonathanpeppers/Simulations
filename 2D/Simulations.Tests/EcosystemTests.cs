@@ -42,6 +42,40 @@ public class EcosystemTests
 					Y = 1,
 					VelocityX = 2,
 					VelocityY = 0,
+					Color = Colors.Red,
+				},
+				new Organism
+				{
+					X = 2,
+					Y = 1,
+					VelocityX = -2,
+					VelocityY = 0,
+					Color = Colors.Blue,
+				}
+			}
+		};
+
+		ecosystem.Update();
+		Assert.Equal(3, ecosystem.Organisms.Count);
+
+		var organism = ecosystem.Organisms[1];
+		Assert.False(organism.IsAlive);
+		Assert.Equal(Colors.Gray, organism.Color);
+	}
+
+	[Fact]
+	public void CollisionSameColor()
+	{
+		var ecosystem = new Ecosystem
+		{
+			Organisms =
+			{
+				new Organism
+				{
+					X = 1,
+					Y = 1,
+					VelocityX = 2,
+					VelocityY = 0,
 				},
 				new Organism
 				{
@@ -54,9 +88,10 @@ public class EcosystemTests
 		};
 
 		ecosystem.Update();
+		Assert.Equal(2, ecosystem.Organisms.Count);
 
-		var organism = ecosystem.Organisms.Last();
-		Assert.False(organism.IsAlive);
-		Assert.Equal(Colors.Gray, organism.Color);
+		var organism = ecosystem.Organisms[1];
+		Assert.True(organism.IsAlive);
+		Assert.NotEqual(Colors.Gray, organism.Color);
 	}
 }

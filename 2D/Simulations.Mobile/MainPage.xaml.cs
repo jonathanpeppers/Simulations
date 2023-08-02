@@ -5,6 +5,7 @@ namespace Simulations.Mobile
 {
 	public partial class MainPage : ContentPage
 	{
+		bool stop = false;
 		const int step = 50;
 		Ecosystem ecosystem = new()
 		{
@@ -40,32 +41,33 @@ namespace Simulations.Mobile
 		public MainPage()
 		{
 			InitializeComponent();
-
-			foreach (var organism in ecosystem.Organisms)
-			{
-				var shape = new Ellipse
-				{
-					BindingContext = organism,
-					Fill = new SolidColorBrush(organism.Color),
-				};	
-				AbsoluteLayout.SetLayoutBounds(shape, new Rect(step * organism.X, step * organism.Y, step, step));
-				layout.Children.Add(shape);
-			}
-
+			UpdateChildren();
 			Dispatcher.StartTimer(TimeSpan.FromSeconds(1), Update);
 		}
 
 		bool Update()
 		{
 			ecosystem.Update();
-			foreach (var shape in layout.Children.Cast<Ellipse>())
-			{
-				var organism = (Organism)shape.BindingContext;
-				shape.Fill = new SolidColorBrush(organism.Color);
-				AbsoluteLayout.SetLayoutBounds(shape, new Rect(step * organism.X, step * organism.Y, step, step));
-			}
-
+			UpdateChildren();
 			return true;
+		}
+
+		/// <summary>
+		/// TODO: recreates every time, maybe could be better, or use BindableLayout
+		/// </summary>
+		void UpdateChildren()
+		{
+			layout.Children.Clear();
+			foreach (var organism in ecosystem.Organisms)
+			{
+				var shape = new Ellipse
+				{
+					BindingContext = organism,
+					Fill = new SolidColorBrush(organism.Color),
+				};
+				AbsoluteLayout.SetLayoutBounds(shape, new Rect(step * organism.X, step * organism.Y, step, step));
+				layout.Children.Add(shape);
+			}
 		}
 	}
 }
