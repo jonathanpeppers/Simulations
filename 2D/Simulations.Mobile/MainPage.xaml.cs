@@ -41,7 +41,7 @@ namespace Simulations.Mobile
 		{
 			InitializeComponent();
 			UpdateChildren();
-			Dispatcher.StartTimer(TimeSpan.FromSeconds(1), Update);
+			Dispatcher.StartTimer(TimeSpan.FromSeconds(.5), Update);
 		}
 
 		bool Update()
