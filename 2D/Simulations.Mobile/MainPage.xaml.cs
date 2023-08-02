@@ -46,7 +46,7 @@ namespace Simulations.Mobile
 				var shape = new Ellipse
 				{
 					BindingContext = organism,
-					BackgroundColor = organism.Color.ToMauiColor(),
+					Fill = new SolidColorBrush(organism.Color.ToMauiColor()),
 				};
 				AbsoluteLayout.SetLayoutBounds(shape, new Rect(step * organism.X, step * organism.Y, step, step));
 				layout.Children.Add(shape);
@@ -61,7 +61,7 @@ namespace Simulations.Mobile
 			foreach (var shape in layout.Children.Cast<Ellipse>())
 			{
 				var organism = (Organism)shape.BindingContext;
-				shape.BackgroundColor = organism.Color.ToMauiColor();
+				shape.Fill = new SolidColorBrush(organism.Color.ToMauiColor());
 				AbsoluteLayout.SetLayoutBounds(shape, new Rect(step * organism.X, step * organism.Y, step, step));
 			}
 
