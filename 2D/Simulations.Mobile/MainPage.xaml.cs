@@ -14,25 +14,25 @@ namespace Simulations.Mobile
 				{
 					X = 0,
 					Y = 0,
-					Color = Colors.Blue.ToLogicColor(),
+					Color = Colors.Blue,
 				},
 				new Organism
 				{
 					X = Organism.MaxSize,
 					Y = 0,
-					Color = Colors.Green.ToLogicColor(),
+					Color = Colors.Green,
 				},
 				new Organism
 				{
 					X = 0,
 					Y = Organism.MaxSize,
-					Color = Colors.Red.ToLogicColor(),
+					Color = Colors.Red,
 				},
 				new Organism
 				{
 					X = Organism.MaxSize,
 					Y = Organism.MaxSize,
-					Color = Colors.Yellow.ToLogicColor(),
+					Color = Colors.Yellow,
 				},
 			},
 		};
@@ -46,8 +46,8 @@ namespace Simulations.Mobile
 				var shape = new Ellipse
 				{
 					BindingContext = organism,
-					Fill = new SolidColorBrush(organism.Color.ToMauiColor()),
-				};
+					Fill = new SolidColorBrush(organism.Color),
+				};	
 				AbsoluteLayout.SetLayoutBounds(shape, new Rect(step * organism.X, step * organism.Y, step, step));
 				layout.Children.Add(shape);
 			}
@@ -61,7 +61,7 @@ namespace Simulations.Mobile
 			foreach (var shape in layout.Children.Cast<Ellipse>())
 			{
 				var organism = (Organism)shape.BindingContext;
-				shape.Fill = new SolidColorBrush(organism.Color.ToMauiColor());
+				shape.Fill = new SolidColorBrush(organism.Color);
 				AbsoluteLayout.SetLayoutBounds(shape, new Rect(step * organism.X, step * organism.Y, step, step));
 			}
 

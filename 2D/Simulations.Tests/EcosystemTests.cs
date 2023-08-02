@@ -1,3 +1,4 @@
+using Microsoft.Maui.Graphics;
 using Simulations.Logic;
 
 namespace Simulations.Tests;
@@ -56,8 +57,6 @@ public class EcosystemTests
 
 		var organism = ecosystem.Organisms.Last();
 		Assert.False(organism.IsAlive);
-		Assert.Equal(0.5f, organism.Color.Red);
-		Assert.Equal(0.5f, organism.Color.Green);
-		Assert.Equal(0.5f, organism.Color.Blue);
+		Assert.Equal(Colors.Gray, organism.Color);
 	}
 }

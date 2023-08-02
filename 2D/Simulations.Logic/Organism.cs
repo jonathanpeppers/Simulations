@@ -1,3 +1,5 @@
+using Microsoft.Maui.Graphics;
+
 namespace Simulations.Logic;
 
 /// <summary>
@@ -7,7 +9,7 @@ public class Organism
 {
 	public const int MaxSize = 16;
 
-	public Color Color { get; set; }
+	public Color Color { get; set; } = Colors.White;
 
 	public Color? Diet { get; set; }
 
@@ -74,7 +76,7 @@ public class Organism
 	public void Die()
 	{
 		IsAlive = false;
-		Color = new Color { Red = 0.5f, Green = 0.5f, Blue = 0.5f };
+		Color = Colors.Gray;
 		VelocityX = 0;
 		VelocityY = 0;
 	}
