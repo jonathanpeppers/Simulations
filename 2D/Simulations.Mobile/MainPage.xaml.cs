@@ -22,6 +22,12 @@ namespace Simulations.Mobile
 				},
 				new Organism
 				{
+					X = Organism.MaxSize / 2,
+					Y = Organism.MaxSize / 2,
+					Color = Colors.Purple,
+				},
+				new Organism
+				{
 					X = Organism.MaxSize,
 					Y = 0,
 					Color = Colors.Green,
