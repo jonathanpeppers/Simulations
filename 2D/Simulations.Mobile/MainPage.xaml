@@ -2,9 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Simulations.Mobile.MainPage">
-  <ScrollView
-    HorizontalScrollBarVisibility="Always"
-    VerticalScrollBarVisibility="Always">
+  <ScrollView HorizontalScrollBarVisibility="Always" VerticalScrollBarVisibility="Always">
     <AbsoluteLayout x:Name="layout" WidthRequest="850" HeightRequest="850" />
   </ScrollView>
 </ContentPage>
