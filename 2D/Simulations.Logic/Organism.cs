@@ -5,6 +5,8 @@ namespace Simulations.Logic;
 /// </summary>
 public class Organism
 {
+	internal const int MaxSize = 16;
+
 	public Color Color { get; set; }
 
 	public Color? Diet { get; set; }
@@ -27,12 +29,12 @@ public class Organism
 	/// <summary>
 	/// The organism's X Velocity
 	/// </summary>
-	public int VelocityX { get; set; } = 1;
+	public int VelocityX { get; set; } = Random.Shared.Next(-3, 4);
 
 	/// <summary>
 	/// The organism's Y Velocity
 	/// </summary>
-	public int VelocityY { get; set; } = 1;
+	public int VelocityY { get; set; } = Random.Shared.Next(-3, 4);
 
 	/// <summary>
 	/// Updates time forward 1 step
@@ -41,5 +43,27 @@ public class Organism
 	{
 		X += VelocityX;
 		Y += VelocityY;
+
+		if (X < 0)
+		{
+			X = 0;
+			VelocityX = -VelocityX;
+		}
+		else if (X > MaxSize)
+		{
+			X = MaxSize;
+			VelocityX = -VelocityX;
+		}
+
+		if (Y < 0)
+		{
+			Y = 0;
+			VelocityY = -VelocityY;
+		}
+		else if (Y > MaxSize)
+		{
+			Y = MaxSize;
+			VelocityY = -VelocityY;
+		}
 	}
 }

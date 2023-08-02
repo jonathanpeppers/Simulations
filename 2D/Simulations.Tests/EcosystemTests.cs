@@ -13,8 +13,8 @@ public class EcosystemTests
 			{
 				new Organism
 				{
-					X = 100,
-					Y = 100,
+					X = 2,
+					Y = 3,
 					VelocityX = 5,
 					VelocityY = 5,
 				}
@@ -24,7 +24,7 @@ public class EcosystemTests
 		ecosystem.Update();
 
 		var organism = ecosystem.Organisms.First();
-		Assert.Equal(105, organism.X);
-		Assert.Equal(105, organism.Y);
+		Assert.Equal(7, organism.X);
+		Assert.Equal(8, organism.Y);
 	}
 }
