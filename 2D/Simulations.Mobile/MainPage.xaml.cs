@@ -12,21 +12,27 @@ namespace Simulations.Mobile
 			{
 				new Organism
 				{
-					X = 1,
-					Y = 2,
+					X = 0,
+					Y = 0,
 					Color = Colors.Blue.ToLogicColor(),
 				},
 				new Organism
 				{
-					X = 5,
-					Y = 5,
+					X = Organism.MaxSize,
+					Y = 0,
+					Color = Colors.Green.ToLogicColor(),
+				},
+				new Organism
+				{
+					X = 0,
+					Y = Organism.MaxSize,
 					Color = Colors.Red.ToLogicColor(),
 				},
 				new Organism
 				{
-					X = 5,
-					Y = 0,
-					Color = Colors.Green.ToLogicColor(),
+					X = Organism.MaxSize,
+					Y = Organism.MaxSize,
+					Color = Colors.Yellow.ToLogicColor(),
 				},
 			},
 		};

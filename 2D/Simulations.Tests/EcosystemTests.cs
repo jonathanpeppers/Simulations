@@ -27,4 +27,37 @@ public class EcosystemTests
 		Assert.Equal(7, organism.X);
 		Assert.Equal(8, organism.Y);
 	}
+
+	[Fact]
+	public void Collision()
+	{
+		var ecosystem = new Ecosystem
+		{
+			Organisms =
+			{
+				new Organism
+				{
+					X = 1,
+					Y = 1,
+					VelocityX = 2,
+					VelocityY = 0,
+				},
+				new Organism
+				{
+					X = 2,
+					Y = 1,
+					VelocityX = -2,
+					VelocityY = 0,
+				}
+			}
+		};
+
+		ecosystem.Update();
+
+		var organism = ecosystem.Organisms.Last();
+		Assert.False(organism.IsAlive);
+		Assert.Equal(0.5f, organism.Color.Red);
+		Assert.Equal(0.5f, organism.Color.Green);
+		Assert.Equal(0.5f, organism.Color.Blue);
+	}
 }

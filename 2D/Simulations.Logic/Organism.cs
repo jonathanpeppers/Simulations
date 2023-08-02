@@ -5,7 +5,7 @@ namespace Simulations.Logic;
 /// </summary>
 public class Organism
 {
-	internal const int MaxSize = 16;
+	public const int MaxSize = 16;
 
 	public Color Color { get; set; }
 
@@ -36,6 +36,8 @@ public class Organism
 	/// </summary>
 	public int VelocityY { get; set; } = Random.Shared.Next(-3, 4);
 
+	public bool IsAlive { get; set; } = true;
+
 	/// <summary>
 	/// Updates time forward 1 step
 	/// </summary>
@@ -65,5 +67,15 @@ public class Organism
 			Y = MaxSize;
 			VelocityY = -VelocityY;
 		}
+	}
+
+	public void Collide(Organism other) => other.Die();
+
+	public void Die()
+	{
+		IsAlive = false;
+		Color = new Color { Red = 0.5f, Green = 0.5f, Blue = 0.5f };
+		VelocityX = 0;
+		VelocityY = 0;
 	}
 }
