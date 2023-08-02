@@ -34,6 +34,7 @@ public class EcosystemTests
 	{
 		var ecosystem = new Ecosystem
 		{
+			FiftyFifty = () => true,
 			Organisms =
 			{
 				new Organism
@@ -68,6 +69,7 @@ public class EcosystemTests
 	{
 		var ecosystem = new Ecosystem
 		{
+			FiftyFifty = () => true,
 			Organisms =
 			{
 				new Organism

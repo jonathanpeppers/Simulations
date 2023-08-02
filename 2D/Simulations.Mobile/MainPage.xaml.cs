@@ -5,7 +5,6 @@ namespace Simulations.Mobile
 {
 	public partial class MainPage : ContentPage
 	{
-		bool stop = false;
 		const int step = 50;
 		Ecosystem ecosystem = new()
 		{

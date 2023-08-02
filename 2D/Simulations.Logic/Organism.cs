@@ -70,7 +70,7 @@ public class Organism
 		}
 	}
 
-	public void Collide(Organism other) => other.Die();
+	public void Eat(Organism other) => other.Die();
 
 	public Organism Duplicate() => new()
 	{

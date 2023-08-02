@@ -8,6 +8,11 @@ public class Ecosystem
 	public List<Organism> Organisms { get; set; } = new();
 
 	/// <summary>
+	/// 50% chance this returns true, overridden by unit tests
+	/// </summary>
+	internal Func<bool> FiftyFifty { get; set; } = () => Random.Shared.Next(2) == 0;
+
+	/// <summary>
 	/// Move forward time, one step
 	/// </summary>
 	public void Update()
@@ -32,8 +37,17 @@ public class Ecosystem
 				if (Math.Abs(first.X -  second.X) <= first.Range &&
 					Math.Abs(first.Y - second.Y) <= first.Range)
 				{
-					first.Collide(second);
-					born.Add(first.Duplicate());
+					// 50% chance which one wins
+					if (FiftyFifty())
+					{
+						first.Eat(second);
+						born.Add(first.Duplicate());
+					}
+					else
+					{
+						second.Eat(first);
+						born.Add(second.Duplicate());
+					}
 				}
 			}
 		}
