@@ -50,6 +50,7 @@ namespace Simulations.Mobile
 		public MainPage()
 		{
 			InitializeComponent();
+			color.SelectedIndex = 0;
 
 			ecosystem.EatSound += (sender, e) => element.Play();
 			UpdateChildren();

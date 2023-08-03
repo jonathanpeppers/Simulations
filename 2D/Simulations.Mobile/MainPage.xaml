@@ -34,7 +34,7 @@
         <Label Text="Y Velocity" />
         <Slider Minimum="-3" Maximum="3" Value="0" x:Name="velocityY" />
         <Label Text="Color" />
-        <Picker x:Name="color" SelectedIndex="0">
+        <Picker x:Name="color">
           <Picker.ItemsSource>
             <x:Array Type="{x:Type x:String}">
               <x:String>Blue</x:String>
