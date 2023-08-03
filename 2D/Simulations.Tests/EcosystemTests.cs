@@ -62,6 +62,13 @@ public class EcosystemTests
 		var organism = ecosystem.Organisms[1];
 		Assert.False(organism.IsAlive);
 		Assert.Equal(Colors.Gray, organism.Color);
+
+		// Assert "dead" one goes away
+		for (int i = 0; i < 10; i++)
+		{
+			ecosystem.Update();
+		}
+		Assert.Equal(2, ecosystem.Organisms.Count);
 	}
 
 	[Fact]

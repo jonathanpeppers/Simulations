@@ -67,5 +67,14 @@ public class Ecosystem
 		{
 			organism.Update();
 		}
+
+		// Remove pass, reverse for-loop
+		for (int i = Organisms.Count - 1; i >= 0; i--)
+		{
+			if (Organisms[i].RemoveCounter > 10)
+			{
+				Organisms.RemoveAt(i);
+			}
+		}
 	}
 }

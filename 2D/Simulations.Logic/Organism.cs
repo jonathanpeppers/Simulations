@@ -39,11 +39,19 @@ public class Organism
 
 	public bool IsAlive { get; set; } = true;
 
+	public int RemoveCounter { get; set; }
+
 	/// <summary>
 	/// Updates time forward 1 step
 	/// </summary>
 	public void Update()
 	{
+		if (!IsAlive)
+		{
+			RemoveCounter++;
+			return;
+		}
+
 		X += VelocityX;
 		Y += VelocityY;
 
