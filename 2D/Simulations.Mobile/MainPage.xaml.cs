@@ -8,7 +8,7 @@ namespace Simulations.Mobile
 {
 	public partial class MainPage : ContentPage
 	{
-		bool stop = false;
+		bool stop = false, pause = true;
 		const int step = 50;
 		Ecosystem ecosystem = new()
 		{
@@ -60,8 +60,11 @@ namespace Simulations.Mobile
 
 		bool Update()
 		{
-			ecosystem.Update();
-			UpdateChildren();
+			if (!pause)
+			{
+				ecosystem.Update();
+				UpdateChildren();
+			}
 			return !stop;
 		}
 
@@ -73,14 +76,25 @@ namespace Simulations.Mobile
 			layout.Children.Clear();
 			foreach (var organism in ecosystem.Organisms)
 			{
-				var shape = new Ellipse
-				{
-					BindingContext = organism,
-					Fill = new SolidColorBrush(organism.Color),
-				};
-				AbsoluteLayout.SetLayoutBounds(shape, new Rect(step * organism.X, step * organism.Y, step, step));
-				layout.Children.Add(shape);
+				AddOrganism(organism);
 			}
+		}
+
+		void AddOrganism(Organism organism)
+		{
+			var shape = new Ellipse
+			{
+				BindingContext = organism,
+				Fill = new SolidColorBrush(organism.Color),
+			};
+			AbsoluteLayout.SetLayoutBounds(shape, new Rect(step * organism.X, step * organism.Y, step, step));
+			layout.Children.Add(shape);
+		}
+
+		void OnPausePlay(object sender, EventArgs e)
+		{
+			pause = !pause;
+			((Button)sender).Text = pause ? "Play" : "Pause";
 		}
 
 		void OnMediaFailed(object sender, MediaFailedEventArgs e) => DisplayAlert("Oops!", e.ErrorMessage, "Ok");
@@ -93,18 +107,24 @@ namespace Simulations.Mobile
 			{
 				ecosystem.Organisms.RemoveAt(ecosystem.Organisms.Count - 1);
 			}
+			if (layout.Children.Count > 0)
+			{
+				layout.Children.RemoveAt(layout.Children.Count - 1);
+			}
 		}
 
 		void OnAddNew(object sender, EventArgs e)
 		{
-			ecosystem.Organisms.Add(new()
+			var organism = new Organism
 			{
 				X = ToInt(x),
 				Y = ToInt(y),
 				VelocityX = ToInt(velocityX),
 				VelocityY = ToInt(velocityY),
 				Color = GetColor(),
-			});
+			};
+			ecosystem.Organisms.Add(organism);
+			AddOrganism(organism);
 		}
 
 		static int ToInt(Slider slider) => (int)Math.Round(slider.Value);
