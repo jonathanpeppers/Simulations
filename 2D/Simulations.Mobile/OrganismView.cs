@@ -23,12 +23,19 @@ public class OrganismView : Image
 	{
 		return color.ToUint() switch
 		{
-			0xFF0000FF => ImageSource.FromFile("organism_blue.png"),
-			0xFF008000 => ImageSource.FromFile("organism_green.png"),
-			0xFF800080 => ImageSource.FromFile("organism_purple.png"),
-			0xFFFF0000 => ImageSource.FromFile("organism_red.png"),
-			0xFFFFFF00 => ImageSource.FromFile("organism_yellow.png"),
-			_ => ImageSource.FromFile("organism_gray.png")
+			0xFF0000FF => blue,
+			0xFF008000 => green,
+			0xFF800080 => purple,
+			0xFFFF0000 => red,
+			0xFFFFFF00 => yellow,
+			_ => gray,
 		};
 	}
+
+	static ImageSource blue = ImageSource.FromFile("organism_blue.png");
+	static ImageSource green = ImageSource.FromFile("organism_green.png");
+	static ImageSource purple = ImageSource.FromFile("organism_purple.png");
+	static ImageSource red = ImageSource.FromFile("organism_red.png");
+	static ImageSource yellow = ImageSource.FromFile("organism_yellow.png");
+	static ImageSource gray = ImageSource.FromFile("organism_gray.png");
 }
