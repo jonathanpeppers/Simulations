@@ -5,15 +5,47 @@
              x:Class="Simulations.Mobile.MainPage">
   <ScrollView HorizontalScrollBarVisibility="Always" VerticalScrollBarVisibility="Always">
     <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="250" />
+      </Grid.ColumnDefinitions>
+     
+      <AbsoluteLayout x:Name="layout" />
+
       <toolkit:MediaElement
-        x:Name="element"
-        ShouldAutoPlay="False"
-        ShouldShowPlaybackControls="False"
-        Source="embed://chomp1.wav"
-        MediaOpened="OnMediaOpened"
-        MediaFailed="OnMediaFailed"
-      />
-      <AbsoluteLayout x:Name="layout" WidthRequest="850" HeightRequest="850" />
+         x:Name="element"
+         Grid.Column="1"
+         ShouldAutoPlay="False"
+         ShouldShowPlaybackControls="False"
+         Source="embed://chomp1.wav"
+         MediaOpened="OnMediaOpened"
+         MediaFailed="OnMediaFailed"
+       />
+
+      <VerticalStackLayout Grid.Column="1" Padding="5" Spacing="5">
+        <Button Text="Remove Last Organism" Clicked="OnRemoveLast" />
+        <Button Text="Add New Organism" Clicked="OnAddNew" />
+        <Label Text="X Position" />
+        <Slider Minimum="0" Maximum="16" x:Name="x" />
+        <Label Text="Y Position" />
+        <Slider Minimum="0" Maximum="16" x:Name="y" />
+        <Label Text="X Velocity" />
+        <Slider Minimum="-3" Maximum="3" Value="0" x:Name="velocityX" />
+        <Label Text="Y Velocity" />
+        <Slider Minimum="-3" Maximum="3" Value="0" x:Name="velocityY" />
+        <Label Text="Color" />
+        <Picker x:Name="color" SelectedIndex="0">
+          <Picker.ItemsSource>
+            <x:Array Type="{x:Type x:String}">
+              <x:String>Blue</x:String>
+              <x:String>Purple</x:String>
+              <x:String>Green</x:String>
+              <x:String>Red</x:String>
+              <x:String>Yellow</x:String>
+            </x:Array>
+          </Picker.ItemsSource>
+        </Picker>
+      </VerticalStackLayout>
     </Grid>
   </ScrollView>
 </ContentPage>

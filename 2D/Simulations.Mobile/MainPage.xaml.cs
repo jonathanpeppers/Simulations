@@ -50,6 +50,7 @@ namespace Simulations.Mobile
 		public MainPage()
 		{
 			InitializeComponent();
+
 			ecosystem.EatSound += (sender, e) => element.Play();
 			UpdateChildren();
 			Dispatcher.StartTimer(TimeSpan.FromSeconds(.5), Update);
@@ -84,5 +85,40 @@ namespace Simulations.Mobile
 		void OnMediaFailed(object sender, MediaFailedEventArgs e) => DisplayAlert("Oops!", e.ErrorMessage, "Ok");
 
 		void OnMediaOpened(object sender, EventArgs e) => Debug.WriteLine("Media opened!");
+
+		void OnRemoveLast(object sender, EventArgs e)
+		{
+			if (ecosystem.Organisms.Count > 0)
+			{
+				ecosystem.Organisms.RemoveAt(ecosystem.Organisms.Count - 1);
+			}
+		}
+
+		void OnAddNew(object sender, EventArgs e)
+		{
+			ecosystem.Organisms.Add(new()
+			{
+				X = ToInt(x),
+				Y = ToInt(y),
+				VelocityX = ToInt(velocityX),
+				VelocityY = ToInt(velocityY),
+				Color = GetColor(),
+			});
+		}
+
+		static int ToInt(Slider slider) => (int)Math.Round(slider.Value);
+
+		Color GetColor()
+		{
+			return color.SelectedIndex switch
+			{
+				0 => Colors.Blue,
+				1 => Colors.Purple,
+				2 => Colors.Green,
+				3 => Colors.Red,
+				4 => Colors.Yellow,
+				_ => throw new NotImplementedException(), // Shouldn't get here?
+			};
+		}
 	}
 }

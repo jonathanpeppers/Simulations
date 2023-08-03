@@ -12,8 +12,10 @@ public partial class App : Application
 	protected override Window CreateWindow(IActivationState activationState)
 	{
 		var window = base.CreateWindow(activationState);
-		window.Width = 900;
+#if WINDOWS || MACCATALYST
+		window.Width = 1150;
 		window.Height = 1000;
+#endif
 		return window;
 	}
 }
