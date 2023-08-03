@@ -49,8 +49,8 @@ namespace Simulations.Mobile
 			InitializeComponent();
 			color.SelectedIndex = 0;
 
+			BindableLayout.SetItemsSource(layout, ecosystem.Organisms);
 			ecosystem.EatSound += (sender, e) => element.Play();
-			UpdateChildren();
 			Dispatcher.StartTimer(TimeSpan.FromSeconds(.333), Update);
 			Unloaded += (sender, e) => stop = true;
 		}
@@ -60,29 +60,8 @@ namespace Simulations.Mobile
 			if (!pause)
 			{
 				ecosystem.Update();
-				UpdateChildren();
 			}
 			return !stop;
-		}
-
-		/// <summary>
-		/// TODO: recreates every time, maybe could be better, or use BindableLayout
-		/// </summary>
-		void UpdateChildren()
-		{
-			layout.Children.Clear();
-			foreach (var organism in ecosystem.Organisms)
-			{
-				AddOrganism(organism);
-			}
-		}
-
-		void AddOrganism(Organism organism)
-		{
-			layout.Children.Add(new OrganismView
-			{
-				BindingContext = organism,
-			});
 		}
 
 		void OnPausePlay(object sender, EventArgs e)
@@ -109,16 +88,14 @@ namespace Simulations.Mobile
 
 		void OnAddNew(object sender, EventArgs e)
 		{
-			var organism = new Organism
+			ecosystem.Organisms.Add(new()
 			{
 				X = ToInt(x),
 				Y = ToInt(y),
 				VelocityX = ToInt(velocityX),
 				VelocityY = ToInt(velocityY),
 				Color = GetColor(),
-			};
-			ecosystem.Organisms.Add(organism);
-			AddOrganism(organism);
+			});
 		}
 
 		static int ToInt(Slider slider) => (int)Math.Round(slider.Value);

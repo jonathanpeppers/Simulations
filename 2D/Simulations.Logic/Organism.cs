@@ -1,4 +1,4 @@
-using System.Reflection.PortableExecutable;
+using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.Maui.Graphics;
 
 namespace Simulations.Logic;
@@ -6,7 +6,7 @@ namespace Simulations.Logic;
 /// <summary>
 /// A single lifeform, or organism
 /// </summary>
-public class Organism
+public class Organism : ObservableObject
 {
 	public const int MaxSize = 16;
 
@@ -46,35 +46,43 @@ public class Organism
 	/// </summary>
 	public void Update()
 	{
-		if (!IsAlive)
+		try
 		{
-			RemoveCounter++;
-			return;
-		}
+			if (!IsAlive)
+			{
+				RemoveCounter++;
+				return;
+			}
 
-		X += VelocityX;
-		Y += VelocityY;
+			X += VelocityX;
+			Y += VelocityY;
 
-		if (X < 0)
-		{
-			X = 0;
-			VelocityX = -VelocityX;
-		}
-		else if (X > MaxSize)
-		{
-			X = MaxSize;
-			VelocityX = -VelocityX;
-		}
+			if (X < 0)
+			{
+				X = 0;
+				VelocityX = -VelocityX;
+			}
+			else if (X > MaxSize)
+			{
+				X = MaxSize;
+				VelocityX = -VelocityX;
+			}
 
-		if (Y < 0)
-		{
-			Y = 0;
-			VelocityY = -VelocityY;
+			if (Y < 0)
+			{
+				Y = 0;
+				VelocityY = -VelocityY;
+			}
+			else if (Y > MaxSize)
+			{
+				Y = MaxSize;
+				VelocityY = -VelocityY;
+			}
 		}
-		else if (Y > MaxSize)
+		finally
 		{
-			Y = MaxSize;
-			VelocityY = -VelocityY;
+			// Performance hack, just fire a single PropertyChanged for empty string
+			OnPropertyChanged("");
 		}
 	}
 

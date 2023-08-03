@@ -10,13 +10,21 @@ public class OrganismView : Image
 
 		if (BindingContext is Organism organism)
 		{
-			AbsoluteLayout.SetLayoutBounds(this, new Rect(App.Scale * organism.X, App.Scale * organism.Y, App.Scale, App.Scale));
-			Source = ToImage(organism.Color);
+			// Performance hack, only update when BindingContext changes, or PropertyChanged w/ empty string
+			organism.PropertyChanged += (sender, e) =>
+			{
+				if (string.IsNullOrEmpty(e.PropertyName))
+					Update((Organism)sender);
+			};
+
+			Update(organism);
 		}
-		else
-		{
-			Source = null;
-		}
+	}
+
+	void Update(Organism organism)
+	{
+		AbsoluteLayout.SetLayoutBounds(this, new Rect(App.Scale * organism.X, App.Scale * organism.Y, App.Scale, App.Scale));
+		Source = ToImage(organism.Color);
 	}
 
 	static ImageSource ToImage(Color color)

@@ -1,3 +1,5 @@
+using System.Collections.ObjectModel;
+
 namespace Simulations.Logic;
 
 /// <summary>
@@ -5,7 +7,7 @@ namespace Simulations.Logic;
 /// </summary>
 public class Ecosystem
 {
-	public List<Organism> Organisms { get; set; } = new();
+	public ObservableCollection<Organism> Organisms { get; set; } = new();
 
 	/// <summary>
 	/// Fired when we could play a sound effect
@@ -60,7 +62,10 @@ public class Ecosystem
 		}
 
 		// Born pass
-		Organisms.AddRange(born);
+		foreach (var organism in born)
+		{
+			Organisms.Add(organism);
+		}
 
 		// Update pass
 		foreach (var organism in Organisms)
