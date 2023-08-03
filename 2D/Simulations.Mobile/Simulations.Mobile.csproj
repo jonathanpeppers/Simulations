@@ -20,7 +20,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>Simulations.Mobile</ApplicationTitle>
+		<ApplicationTitle>Organisms!</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.simulations.mobile</ApplicationId>
