@@ -54,7 +54,7 @@ namespace Simulations.Mobile
 
 			ecosystem.EatSound += (sender, e) => element.Play();
 			UpdateChildren();
-			Dispatcher.StartTimer(TimeSpan.FromSeconds(.5), Update);
+			Dispatcher.StartTimer(TimeSpan.FromSeconds(.333), Update);
 			Unloaded += (sender, e) => stop = true;
 		}
 
