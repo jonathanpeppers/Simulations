@@ -82,13 +82,13 @@ namespace Simulations.Mobile
 
 		void AddOrganism(Organism organism)
 		{
-			var shape = new Ellipse
+			var image = new Image
 			{
 				BindingContext = organism,
-				Fill = new SolidColorBrush(organism.Color),
+				Source = ToImage(organism.Color),
 			};
-			AbsoluteLayout.SetLayoutBounds(shape, new Rect(step * organism.X, step * organism.Y, step, step));
-			layout.Children.Add(shape);
+			AbsoluteLayout.SetLayoutBounds(image, new Rect(step * organism.X, step * organism.Y, step, step));
+			layout.Children.Add(image);
 		}
 
 		void OnPausePlay(object sender, EventArgs e)
@@ -128,6 +128,19 @@ namespace Simulations.Mobile
 		}
 
 		static int ToInt(Slider slider) => (int)Math.Round(slider.Value);
+
+		static ImageSource ToImage(Color color)
+		{
+			return color.ToUint() switch
+			{
+				0xFF0000FF => ImageSource.FromFile("organism_blue.png"),
+				0xFF008000 => ImageSource.FromFile("organism_green.png"),
+				0xFF800080 => ImageSource.FromFile("organism_purple.png"),
+				0xFFFF0000 => ImageSource.FromFile("organism_red.png"),
+				0xFFFFFF00 => ImageSource.FromFile("organism_yellow.png"),
+				_ => ImageSource.FromFile("organism_gray.png")
+			};
+		}
 
 		Color GetColor()
 		{

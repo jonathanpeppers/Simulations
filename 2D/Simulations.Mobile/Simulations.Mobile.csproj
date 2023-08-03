@@ -45,8 +45,12 @@
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 
 		<!-- Images -->
-		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+		<MauiImage Include="Resources\Images\organism_blue.svg" BaseSize="50,50" TintColor="Blue" />
+		<MauiImage Include="Resources\Images\organism_gray.svg" BaseSize="50,50" TintColor="Gray" />
+		<MauiImage Include="Resources\Images\organism_green.svg" BaseSize="50,50" TintColor="Green" />
+		<MauiImage Include="Resources\Images\organism_purple.svg" BaseSize="50,50" TintColor="Purple" />
+		<MauiImage Include="Resources\Images\organism_red.svg" BaseSize="50,50" TintColor="Red" />
+		<MauiImage Include="Resources\Images\organism_yellow.svg" BaseSize="50,50" TintColor="Yellow" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
