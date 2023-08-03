@@ -128,8 +128,8 @@ namespace Simulations.Mobile
 			return color.SelectedIndex switch
 			{
 				0 => Colors.Blue,
-				1 => Colors.Purple,
-				2 => Colors.Green,
+				1 => Colors.Green,
+				2 => Colors.Purple,
 				3 => Colors.Red,
 				4 => Colors.Yellow,
 				_ => throw new NotImplementedException(), // Shouldn't get here?
