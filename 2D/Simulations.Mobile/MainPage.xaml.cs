@@ -1,7 +1,5 @@
 using System.Diagnostics;
 using CommunityToolkit.Maui.Core.Primitives;
-using CommunityToolkit.Maui.Views;
-using Microsoft.Maui.Controls.Shapes;
 using Simulations.Logic;
 
 namespace Simulations.Mobile
@@ -9,7 +7,6 @@ namespace Simulations.Mobile
 	public partial class MainPage : ContentPage
 	{
 		bool stop = false, pause = true;
-		const int step = 50;
 		Ecosystem ecosystem = new()
 		{
 			Organisms =
@@ -82,13 +79,10 @@ namespace Simulations.Mobile
 
 		void AddOrganism(Organism organism)
 		{
-			var image = new Image
+			layout.Children.Add(new OrganismView
 			{
 				BindingContext = organism,
-				Source = ToImage(organism.Color),
-			};
-			AbsoluteLayout.SetLayoutBounds(image, new Rect(step * organism.X, step * organism.Y, step, step));
-			layout.Children.Add(image);
+			});
 		}
 
 		void OnPausePlay(object sender, EventArgs e)
@@ -128,19 +122,6 @@ namespace Simulations.Mobile
 		}
 
 		static int ToInt(Slider slider) => (int)Math.Round(slider.Value);
-
-		static ImageSource ToImage(Color color)
-		{
-			return color.ToUint() switch
-			{
-				0xFF0000FF => ImageSource.FromFile("organism_blue.png"),
-				0xFF008000 => ImageSource.FromFile("organism_green.png"),
-				0xFF800080 => ImageSource.FromFile("organism_purple.png"),
-				0xFFFF0000 => ImageSource.FromFile("organism_red.png"),
-				0xFFFFFF00 => ImageSource.FromFile("organism_yellow.png"),
-				_ => ImageSource.FromFile("organism_gray.png")
-			};
-		}
 
 		Color GetColor()
 		{
