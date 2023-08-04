@@ -1,3 +1,4 @@
+#nullable enable
 using Simulations.Logic;
 
 namespace Simulations.Mobile;
@@ -21,8 +22,8 @@ public class OrganismView : Grid
 			// Performance hack, only update when BindingContext changes, or PropertyChanged w/ empty string
 			organism.PropertyChanged += (sender, e) =>
 			{
-				if (string.IsNullOrEmpty(e.PropertyName))
-					Update((Organism)sender);
+				if (sender is Organism organism && string.IsNullOrEmpty(e.PropertyName))
+					Update(organism);
 			};
 
 			Update(organism);
