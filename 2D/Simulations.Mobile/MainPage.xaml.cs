@@ -86,6 +86,26 @@ namespace Simulations.Mobile
 			}
 		}
 
+		void OnSliderChanged(object sender, EventArgs e)
+		{
+			if (sender == x)
+			{
+				xLabel.Text = $"X Position: {ToInt(x)}";
+			}
+			else if (sender == y)
+			{
+				yLabel.Text = $"Y Position: {ToInt(y)}";
+			}
+			else if (sender == velocityX)
+			{
+				velocityXLabel.Text = $"X Velocity: {ToInt(velocityX)}";
+			}
+			else if (sender == velocityY)
+			{
+				velocityYLabel.Text = $"Y Velocity: {ToInt(velocityY)}";
+			}
+		}
+
 		void OnAddNew(object sender, EventArgs e)
 		{
 			ecosystem.Organisms.Add(new()
