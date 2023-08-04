@@ -73,7 +73,7 @@ public class Ecosystem
 			organism.Update();
 		}
 
-		int maxEaten = Organisms.Max(o => o.EatCounter);
+		int maxEaten = Organisms.Count == 0 ? 0 : Organisms.Max(o => o.EatCounter);
 
 		// Remove pass, reverse for-loop
 		for (int i = Organisms.Count - 1; i >= 0; i--)

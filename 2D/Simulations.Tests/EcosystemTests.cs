@@ -6,6 +6,9 @@ namespace Simulations.Tests;
 public class EcosystemTests
 {
 	[Fact]
+	public void UpdateEmpty() => new Ecosystem().Update();
+
+	[Fact]
 	public void EcosystemUpdate()
 	{
 		var ecosystem = new Ecosystem
