@@ -23,61 +23,64 @@
      inkscape:document-units="mm"
      inkscape:zoom="22.919307"
      inkscape:cx="28.622157"
-     inkscape:cy="25.197097"
+     inkscape:cy="25.240728"
      inkscape:window-width="2560"
      inkscape:window-height="1351"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     bordercolor="#000000"
+     borderopacity="0.25" />
   <defs
      id="defs1" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="matrix(0.85161291,0,0,0.82283466,0.57281197,1.3682968)">
     <rect
-       style="fill:#000000;stroke-width:0.264583"
+       style="fill:#000000;stroke-width:0.213942"
        id="rect1"
-       width="3.5094142"
-       height="3.0245605"
-       x="2.331913"
-       y="3.9134581" />
+       width="2.9088728"
+       height="2.3858335"
+       x="3.398047"
+       y="3.8788257" />
     <rect
-       style="fill:#000000;stroke-width:0.264583"
+       style="fill:#000000;stroke-width:0.213942"
        id="rect2"
-       width="3.5094142"
-       height="3.0245605"
-       x="7.0765481"
-       y="3.9134581" />
+       width="2.9088728"
+       height="2.3858335"
+       x="7.3307657"
+       y="3.8788257" />
     <rect
-       style="fill:#000000;stroke-width:0.264583"
+       style="fill:#000000;stroke-width:0.213942"
        id="rect3"
-       width="1.3852949"
-       height="0.35786787"
-       x="5.7605181"
-       y="3.9134583" />
+       width="1.1482391"
+       height="0.28229329"
+       x="6.2399387"
+       y="3.8788259" />
     <ellipse
-       style="fill:#000000;stroke-width:0.264583"
+       style="fill:#000000;stroke-width:0.213942"
        id="path3"
-       ry="0.78500044"
-       rx="1.760479"
-       cy="6.8225775"
-       cx="4.0808482" />
+       ry="0.61922395"
+       rx="1.4592205"
+       cy="6.1735973"
+       cx="4.8476992" />
     <ellipse
-       style="fill:#000000;stroke-width:0.264583"
+       style="fill:#000000;stroke-width:0.213942"
        id="ellipse4"
-       ry="0.78500044"
-       rx="1.760479"
-       cy="6.8456659"
-       cx="8.8254833" />
+       ry="0.61922395"
+       rx="1.4592205"
+       cy="6.1918097"
+       cx="8.7804174" />
     <rect
-       style="fill:#000000;stroke-width:0.264583"
+       style="fill:#000000;stroke-width:0.213942"
        id="rect4"
-       width="1.3852949"
-       height="0.35786787"
-       x="1.9509569"
-       y="3.9134586" />
+       width="1.1482391"
+       height="0.28229329"
+       x="3.0822811"
+       y="3.8788261" />
     <path
        sodipodi:type="star"
        style="fill:#ffffff;stroke-width:0.264583"
@@ -93,6 +96,6 @@
        inkscape:rounded="0"
        inkscape:randomized="0"
        d="M 9.1083146,5.9914004 8.5142024,5.8800612 7.9539021,6.1068416 8.0652413,5.5127294 7.8384609,4.9524292 8.4325731,5.0637683 8.9928733,4.8369879 8.8815342,5.4311001 Z"
-       transform="matrix(0.70907244,-0.59753744,0.60339565,0.71602413,-6.0198994,6.0802564)" />
+       transform="matrix(0.58773384,-0.47134942,0.50014078,0.56481407,-3.5245784,5.5880393)" />
   </g>
 </svg>
