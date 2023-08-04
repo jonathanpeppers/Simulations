@@ -51,6 +51,7 @@
 		<MauiImage Include="Resources\Images\organism_purple.svg" BaseSize="50,50" TintColor="Purple" />
 		<MauiImage Include="Resources\Images\organism_red.svg" BaseSize="50,50" TintColor="Red" />
 		<MauiImage Include="Resources\Images\organism_yellow.svg" BaseSize="50,50" TintColor="Yellow" />
+		<MauiImage Include="Resources\Images\shades.svg" BaseSize="50,50" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />

@@ -2,8 +2,16 @@ using Simulations.Logic;
 
 namespace Simulations.Mobile;
 
-public class OrganismView : Image
+public class OrganismView : Grid
 {
+	readonly Image image = new Image();
+	Image? shadesImage;
+
+	public OrganismView()
+	{
+		Children.Add(image);
+	}
+
 	protected override void OnBindingContextChanged()
 	{
 		base.OnBindingContextChanged();
@@ -24,7 +32,21 @@ public class OrganismView : Image
 	void Update(Organism organism)
 	{
 		AbsoluteLayout.SetLayoutBounds(this, new Rect(App.Scale * organism.X, App.Scale * organism.Y, App.Scale, App.Scale));
-		Source = ToImage(organism.Color);
+		image.Source = ToImage(organism.Color);
+
+		if (organism.HasShades)
+		{
+			if (shadesImage is null)
+			{
+				shadesImage = new Image { Source = shades };
+				Children.Add(shadesImage);
+			}
+			shadesImage.IsVisible = true;
+		}
+		else if (shadesImage != null)
+		{
+			shadesImage.IsVisible = false;
+		}
 	}
 
 	static ImageSource ToImage(Color color)
@@ -46,4 +68,5 @@ public class OrganismView : Image
 	static ImageSource red = ImageSource.FromFile("organism_red.png");
 	static ImageSource yellow = ImageSource.FromFile("organism_yellow.png");
 	static ImageSource gray = ImageSource.FromFile("organism_gray.png");
+	static ImageSource shades = ImageSource.FromFile("shades.png");
 }

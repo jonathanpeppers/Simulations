@@ -73,6 +73,8 @@ public class Ecosystem
 			organism.Update();
 		}
 
+		int maxEaten = Organisms.Max(o => o.EatCounter);
+
 		// Remove pass, reverse for-loop
 		for (int i = Organisms.Count - 1; i >= 0; i--)
 		{
@@ -80,6 +82,11 @@ public class Ecosystem
 			{
 				Organisms.RemoveAt(i);
 			}
+		}
+
+		foreach (var organism in Organisms)
+		{
+			organism.HasShades = maxEaten != 0 && organism.IsAlive && organism.EatCounter == maxEaten;
 		}
 	}
 }

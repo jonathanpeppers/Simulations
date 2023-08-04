@@ -41,6 +41,13 @@ public class Organism : ObservableObject
 
 	public int RemoveCounter { get; set; }
 
+	public int EatCounter { get; set; }
+
+	/// <summary>
+	/// The "top" organism wears shades, of course
+	/// </summary>
+	public bool HasShades { get; set; }
+
 	/// <summary>
 	/// Updates time forward 1 step
 	/// </summary>
@@ -86,7 +93,11 @@ public class Organism : ObservableObject
 		}
 	}
 
-	public void Eat(Organism other) => other.Die();
+	public void Eat(Organism other)
+	{
+		EatCounter++;
+		other.Die();
+	}
 
 	public Organism Duplicate() => new()
 	{
@@ -99,6 +110,7 @@ public class Organism : ObservableObject
 
 	public void Die()
 	{
+		HasShades = false;
 		IsAlive = false;
 		Color = Colors.Gray;
 		VelocityX = 0;
