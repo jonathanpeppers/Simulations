@@ -80,10 +80,6 @@ namespace Simulations.Mobile
 			{
 				ecosystem.Organisms.RemoveAt(ecosystem.Organisms.Count - 1);
 			}
-			if (layout.Children.Count > 0)
-			{
-				layout.Children.RemoveAt(layout.Children.Count - 1);
-			}
 		}
 
 		void OnSliderChanged(object sender, EventArgs e)
