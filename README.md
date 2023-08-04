@@ -4,6 +4,7 @@ A collection of "Levi's simulations" similar to the Primer YouTube channel:
 
 https://www.youtube.com/@PrimerBlobs
 
+These projects are completely for fun, and have no practical value. Enjoy!
 
 Folders:
 
