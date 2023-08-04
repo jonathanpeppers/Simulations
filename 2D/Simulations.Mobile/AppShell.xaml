@@ -5,10 +5,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Simulations.Mobile"
     Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="{OnPlatform Default=true, iOS=false, Android=false}"
     Title="Organisms!">
 
     <ShellContent
-        Title="Home"
+        Title="Organisms!"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
