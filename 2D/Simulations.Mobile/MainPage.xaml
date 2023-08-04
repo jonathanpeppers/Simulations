@@ -28,6 +28,7 @@
          Source="embed://chomp1.wav"
          MediaOpened="OnMediaOpened"
          MediaFailed="OnMediaFailed"
+         IsVisible="false"
        />
 
       <VerticalStackLayout Grid.Column="1" Padding="5" Spacing="5">
