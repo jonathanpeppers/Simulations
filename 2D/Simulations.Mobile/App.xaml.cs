@@ -5,7 +5,7 @@ public partial class App : Application
 	/// <summary>
 	/// 1 unit in Simulations.Logic is multiplied by this Scale for the screen coordinates
 	/// </summary>
-	public const int Scale = 50;
+	public const int Scale = 46;
 
 	public App()
 	{
