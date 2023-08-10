@@ -32,7 +32,8 @@ public class OrganismView : Grid
 
 	void Update(Organism organism)
 	{
-		AbsoluteLayout.SetLayoutBounds(this, new Rect(App.Scale * organism.X, App.Scale * organism.Y, App.Scale, App.Scale));
+		Grid.SetColumn(this, organism.X);
+		Grid.SetRow(this, organism.Y);
 		image.Source = ToImage(organism.Color);
 
 		if (organism.HasShades)

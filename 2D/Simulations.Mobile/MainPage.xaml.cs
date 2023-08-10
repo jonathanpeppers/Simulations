@@ -49,7 +49,7 @@ namespace Simulations.Mobile
 			InitializeComponent();
 			color.SelectedIndex = 0;
 
-			BindableLayout.SetItemsSource(layout, ecosystem.Organisms);
+			BindableLayout.SetItemsSource(grid, ecosystem.Organisms);
 			ecosystem.EatSound += (sender, e) => element.Play();
 			Dispatcher.StartTimer(TimeSpan.FromSeconds(.333), Update);
 			Unloaded += (sender, e) => stop = true;

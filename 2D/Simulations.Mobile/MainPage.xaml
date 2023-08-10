@@ -5,57 +5,91 @@
              xmlns:local="clr-namespace:Simulations.Mobile"
              x:Class="Simulations.Mobile.MainPage"
              BackgroundColor="CornflowerBlue">
-  <ScrollView HorizontalScrollBarVisibility="Always" VerticalScrollBarVisibility="Always">
-    <Grid>
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="250" />
+    </Grid.ColumnDefinitions>
+
+    <Grid x:Name="grid">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="250" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
       </Grid.ColumnDefinitions>
-
-      <AbsoluteLayout x:Name="layout">
-        <BindableLayout.ItemTemplate>
-          <DataTemplate>
-            <local:OrganismView />
-          </DataTemplate>
-        </BindableLayout.ItemTemplate>
-      </AbsoluteLayout>
-
-      <toolkit:MediaElement
-         x:Name="element"
-         Grid.Column="1"
-         ShouldAutoPlay="False"
-         ShouldShowPlaybackControls="False"
-         Source="embed://chomp1.wav"
-         MediaOpened="OnMediaOpened"
-         MediaFailed="OnMediaFailed"
-         IsVisible="false"
-       />
-
-      <VerticalStackLayout Grid.Column="1" Padding="5" Spacing="5">
-        <Button Text="Play" Clicked="OnPausePlay" />
-        <Button Text="Remove Last Organism" Clicked="OnRemoveLast" />
-        <Button Text="Add New Organism" Clicked="OnAddNew" />
-        <Label Text="X Position: 0" x:Name="xLabel" />
-        <Slider Minimum="0" Maximum="16" x:Name="x" ValueChanged="OnSliderChanged" />
-        <Label Text="Y Position: 0" x:Name="yLabel" />
-        <Slider Minimum="0" Maximum="16" x:Name="y" ValueChanged="OnSliderChanged" />
-        <Label Text="X Velocity: 0" x:Name="velocityXLabel" />
-        <Slider Minimum="-3" Maximum="3" Value="0" x:Name="velocityX" ValueChanged="OnSliderChanged" />
-        <Label Text="Y Velocity: 0" x:Name="velocityYLabel" />
-        <Slider Minimum="-3" Maximum="3" Value="0" x:Name="velocityY" ValueChanged="OnSliderChanged" />
-        <Label Text="Color" />
-        <Picker x:Name="color">
-          <Picker.ItemsSource>
-            <x:Array Type="{x:Type x:String}">
-              <x:String>Blue</x:String>
-              <x:String>Green</x:String>
-              <x:String>Purple</x:String>
-              <x:String>Red</x:String>
-              <x:String>Yellow</x:String>
-            </x:Array>
-          </Picker.ItemsSource>
-        </Picker>
-      </VerticalStackLayout>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <BindableLayout.ItemTemplate>
+        <DataTemplate>
+          <local:OrganismView />
+        </DataTemplate>
+      </BindableLayout.ItemTemplate>
     </Grid>
-  </ScrollView>
+
+    <toolkit:MediaElement
+        x:Name="element"
+        Grid.Column="1"
+        ShouldAutoPlay="False"
+        ShouldShowPlaybackControls="False"
+        Source="embed://chomp1.wav"
+        MediaOpened="OnMediaOpened"
+        MediaFailed="OnMediaFailed"
+        IsVisible="false"
+      />
+
+    <VerticalStackLayout Grid.Column="1" Padding="5" Spacing="5">
+      <Button Text="Play" Clicked="OnPausePlay" />
+      <Button Text="Remove Last Organism" Clicked="OnRemoveLast" />
+      <Button Text="Add New Organism" Clicked="OnAddNew" />
+      <Label Text="X Position: 0" x:Name="xLabel" />
+      <Slider Minimum="0" Maximum="16" x:Name="x" ValueChanged="OnSliderChanged" />
+      <Label Text="Y Position: 0" x:Name="yLabel" />
+      <Slider Minimum="0" Maximum="16" x:Name="y" ValueChanged="OnSliderChanged" />
+      <Label Text="X Velocity: 0" x:Name="velocityXLabel" />
+      <Slider Minimum="-3" Maximum="3" Value="0" x:Name="velocityX" ValueChanged="OnSliderChanged" />
+      <Label Text="Y Velocity: 0" x:Name="velocityYLabel" />
+      <Slider Minimum="-3" Maximum="3" Value="0" x:Name="velocityY" ValueChanged="OnSliderChanged" />
+      <Label Text="Color" />
+      <Picker x:Name="color">
+        <Picker.ItemsSource>
+          <x:Array Type="{x:Type x:String}">
+            <x:String>Blue</x:String>
+            <x:String>Green</x:String>
+            <x:String>Purple</x:String>
+            <x:String>Red</x:String>
+            <x:String>Yellow</x:String>
+          </x:Array>
+        </Picker.ItemsSource>
+      </Picker>
+    </VerticalStackLayout>
+  </Grid>
 </ContentPage>
