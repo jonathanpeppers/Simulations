@@ -84,21 +84,13 @@ namespace Simulations.Mobile
 
 		void OnSliderChanged(object sender, EventArgs e)
 		{
-			if (sender == x)
+			if (sender == x || sender == y)
 			{
-				xLabel.Text = $"X Position: {ToInt(x)}";
+				positionLabel.Text = $"Position: {ToInt(x)}, {ToInt(y)}";
 			}
-			else if (sender == y)
+			else if (sender == velocityX || sender == velocityY)
 			{
-				yLabel.Text = $"Y Position: {ToInt(y)}";
-			}
-			else if (sender == velocityX)
-			{
-				velocityXLabel.Text = $"X Velocity: {ToInt(velocityX)}";
-			}
-			else if (sender == velocityY)
-			{
-				velocityYLabel.Text = $"Y Velocity: {ToInt(velocityY)}";
+				velocityLabel.Text = $"Velocity: {ToInt(velocityX)}, {ToInt(velocityY)}";
 			}
 		}
 
