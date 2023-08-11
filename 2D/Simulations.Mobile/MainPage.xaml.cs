@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using CommunityToolkit.Maui.Core.Primitives;
 using Simulations.Logic;
 
 namespace Simulations.Mobile
@@ -50,7 +49,7 @@ namespace Simulations.Mobile
 			color.SelectedIndex = 0;
 
 			BindableLayout.SetItemsSource(grid, ecosystem.Organisms);
-			ecosystem.EatSound += (sender, e) => element.Play();
+			ecosystem.EatSound += (sender, e) => Sound.Play();
 			Dispatcher.StartTimer(TimeSpan.FromSeconds(.333), Update);
 			Unloaded += (sender, e) => stop = true;
 		}
@@ -69,10 +68,6 @@ namespace Simulations.Mobile
 			pause = !pause;
 			((Button)sender).Text = pause ? "Play" : "Pause";
 		}
-
-		void OnMediaFailed(object sender, MediaFailedEventArgs e) => DisplayAlert("Oops!", e.ErrorMessage, "Ok");
-
-		void OnMediaOpened(object sender, EventArgs e) => Debug.WriteLine("Media opened!");
 
 		void OnRemoveLast(object sender, EventArgs e)
 		{

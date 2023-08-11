@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:local="clr-namespace:Simulations.Mobile"
              x:Class="Simulations.Mobile.MainPage"
              BackgroundColor="CornflowerBlue">
@@ -54,17 +53,6 @@
         </DataTemplate>
       </BindableLayout.ItemTemplate>
     </Grid>
-
-    <toolkit:MediaElement
-        x:Name="element"
-        Grid.Column="1"
-        ShouldAutoPlay="False"
-        ShouldShowPlaybackControls="False"
-        Source="embed://chomp1.wav"
-        MediaOpened="OnMediaOpened"
-        MediaFailed="OnMediaFailed"
-        IsVisible="false"
-      />
 
     <VerticalStackLayout Grid.Column="1" Padding="5" Spacing="5">
       <Button Text="Play" Clicked="OnPausePlay" />
