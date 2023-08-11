@@ -17,4 +17,6 @@ Folders:
   2-dimensional space. Contains a .NET MAUI app that works best on devices with
   larger screens like desktop or tablets.
 
+[![Download on the App Store](https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us)](https://apps.apple.com/app/organisms/id6458222858)
+
 ![Screenshot of 2D app](docs/2D.png)
