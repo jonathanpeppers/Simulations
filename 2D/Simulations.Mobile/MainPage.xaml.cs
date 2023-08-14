@@ -46,6 +46,11 @@ namespace Simulations.Mobile
 		public MainPage()
 		{
 			InitializeComponent();
+			for (int i = 0; i < 16; i++)
+			{
+				grid.ColumnDefinitions.Add(new ColumnDefinition());
+				grid.RowDefinitions.Add(new RowDefinition());
+			}
 			color.SelectedIndex = 0;
 
 			BindableLayout.SetItemsSource(grid, ecosystem.Organisms);
