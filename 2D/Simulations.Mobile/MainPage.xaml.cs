@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using Simulations.Logic;
 
 namespace Simulations.Mobile
@@ -46,7 +45,7 @@ namespace Simulations.Mobile
 		public MainPage()
 		{
 			InitializeComponent();
-			for (int i = 0; i < 16; i++)
+			for (int i = 0; i <= Organism.MaxSize; i++)
 			{
 				grid.ColumnDefinitions.Add(new ColumnDefinition());
 				grid.RowDefinitions.Add(new RowDefinition());
