@@ -1,4 +1,3 @@
-using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 
 namespace Simulations.Mobile;
@@ -10,7 +9,6 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
-			.UseMauiCommunityToolkitMediaElement()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

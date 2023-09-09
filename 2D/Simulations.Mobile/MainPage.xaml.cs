@@ -1,5 +1,3 @@
-using System.Diagnostics;
-using CommunityToolkit.Maui.Core.Primitives;
 using Simulations.Logic;
 
 namespace Simulations.Mobile
@@ -47,10 +45,15 @@ namespace Simulations.Mobile
 		public MainPage()
 		{
 			InitializeComponent();
+			for (int i = 0; i <= Organism.MaxSize; i++)
+			{
+				grid.ColumnDefinitions.Add(new ColumnDefinition());
+				grid.RowDefinitions.Add(new RowDefinition());
+			}
 			color.SelectedIndex = 0;
 
 			BindableLayout.SetItemsSource(grid, ecosystem.Organisms);
-			ecosystem.EatSound += (sender, e) => element.Play();
+			ecosystem.EatSound += (sender, e) => Sound.Play();
 			Dispatcher.StartTimer(TimeSpan.FromSeconds(.333), Update);
 			Unloaded += (sender, e) => stop = true;
 		}
@@ -70,10 +73,6 @@ namespace Simulations.Mobile
 			((Button)sender).Text = pause ? "Play" : "Pause";
 		}
 
-		void OnMediaFailed(object sender, MediaFailedEventArgs e) => DisplayAlert("Oops!", e.ErrorMessage, "Ok");
-
-		void OnMediaOpened(object sender, EventArgs e) => Debug.WriteLine("Media opened!");
-
 		void OnRemoveLast(object sender, EventArgs e)
 		{
 			if (ecosystem.Organisms.Count > 0)
@@ -84,21 +83,13 @@ namespace Simulations.Mobile
 
 		void OnSliderChanged(object sender, EventArgs e)
 		{
-			if (sender == x)
+			if (sender == x || sender == y)
 			{
-				xLabel.Text = $"X Position: {ToInt(x)}";
+				positionLabel.Text = $"Position: {ToInt(x)}, {ToInt(y)}";
 			}
-			else if (sender == y)
+			else if (sender == velocityX || sender == velocityY)
 			{
-				yLabel.Text = $"Y Position: {ToInt(y)}";
-			}
-			else if (sender == velocityX)
-			{
-				velocityXLabel.Text = $"X Velocity: {ToInt(velocityX)}";
-			}
-			else if (sender == velocityY)
-			{
-				velocityYLabel.Text = $"Y Velocity: {ToInt(velocityY)}";
+				velocityLabel.Text = $"Velocity: {ToInt(velocityX)}, {ToInt(velocityY)}";
 			}
 		}
 

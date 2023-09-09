@@ -112,4 +112,30 @@ public class EcosystemTests
 		Assert.True(organism.IsAlive);
 		Assert.NotEqual(Colors.Gray, organism.Color);
 	}
+
+	[Fact]
+	public void OffScreen()
+	{
+		var ecosystem = new Ecosystem
+		{
+			Organisms =
+			{
+				new Organism
+				{
+					X = Organism.MaxSize,
+					Y = Organism.MaxSize,
+					VelocityX = 1,
+					VelocityY = 1,
+				}
+			}
+		};
+
+		ecosystem.Update();
+
+		var organism = ecosystem.Organisms.First();
+		Assert.Equal(Organism.MaxSize, organism.X);
+		Assert.Equal(Organism.MaxSize, organism.Y);
+		Assert.Equal(-1, organism.VelocityX);
+		Assert.Equal(-1, organism.VelocityY);
+	}
 }
